@@ -1,5 +1,9 @@
 // import logo from './logo.svg';
 import './App.css';
+import ComposantClass from './Components/ComposantClass';
+import ComposantFunct from './Components/ComposantFunct';
+import Product from './Components/Product';
+
 const option=(
   <ol>
     <li>TWIN</li>
@@ -29,7 +33,10 @@ var myStyle={
 function App() {
   return (
     <div className="App">
-      <h1 style={myStyle}>Code CSS</h1>
+      <ComposantClass />
+      <ComposantFunct />
+      <Product />
+      {/* <h1 style={myStyle}>Code CSS</h1>
       {formatName(user)}
        Ceci un objet
       {user.lastname} - {user.lastname}
@@ -41,7 +48,7 @@ function App() {
       la contenu de l'expression est {expression}
       <br>
       </br>
-      Hello {nom} {prenom} {photo}
+      Hello {nom} {prenom} {photo} */}
       
     </div>
   );
