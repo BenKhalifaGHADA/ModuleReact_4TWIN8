@@ -1,40 +1,39 @@
+import Card from "react-bootstrap/Card";
 import { Component } from "react";
+import Button from 'react-bootstrap/Button';
 class Product extends Component {
-    state = {
-        produts:[
-             {
-                "name": "PC Lenovo",
-                "price": "1400",
-                  "img": "product1.webp",
-                  "like":0,
-                  "quantity":10,
-                  "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page"
-             },
-             {
-                "name": "Mouse",
-                "price": "30",
-                "img": "product2.jpg",
-                "like":0,
-                "quantity":0,
-                "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page"
-              },
-              {
-                "name": "KeyBoard",
-                "price": "70",
-                "img": "product3.jpg",
-                "like":0,
-                "quantity":20,
-                "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page"
-              }
-        ]
-      
-      }
-    render() { 
-        return (<>
-        {this.state.produts.map((p, i) =><li key={i} >{p.name} -- {p.price}</li>)}
-        </>);
-    }
-}
- 
-export default Product;<>
-</>
+  constructor(props) {
+    super(props);
+    this.state = { product: props.product};
+  }
+
+  addLikes = () => {
+    this.setState((prevState) => ({
+      product: { ...prevState.product,
+                 like: prevState.product.like + 1 },
+    }));
+  };
+  updateQuantity = (newQuantity) => {
+    this.setState((prevState) => ({
+      product: { ...prevState.product,
+                 quantity: newQuantity },
+    }));
+  };
+  render() { 
+    return (<>
+        <Card>
+              <Card.Img variant="top" src={require("../assets/images/" + this.state.product.img)} />
+              <Card.Body>
+                <Card.Title> {this.state.product.name}</Card.Title>
+                <Card.Text>{this.state.product.description}</Card.Text>
+                <Card.Text> {this.state.product.price} </Card.Text>
+                <Card.Text>Likes :{this.state.product.like}</Card.Text>
+                <Card.Text>quantité :{this.state.product.quantity}</Card.Text>
+                <Button variant="primary" onClick={this.addLikes}>Like</Button>{' '}
+                <Button variant="primary" onClick={()=>this.props.buyFunction(this.state.product,this.updateQuantity)} disabled={this.state.product.quantity===0}>Buy</Button>
+              </Card.Body>
+      </Card>
+    </>);
+  }
+} 
+export default Product;

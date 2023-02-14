@@ -1,8 +1,13 @@
 // import logo from './logo.svg';
 import './App.css';
 import ComposantClass from './Components/ComposantClass';
+import Composantcycle from './Components/Composantcycle';
 import ComposantFunct from './Components/ComposantFunct';
+import Personne from './Components/Personne';
 import Product from './Components/Product';
+import Product1 from './Components/Product1';
+import Products from './Components/Products';
+
 
 const option=(
   <ol>
@@ -33,9 +38,13 @@ var myStyle={
 function App() {
   return (
     <div className="App">
-      <ComposantClass />
+      {/* <ComposantClass />
       <ComposantFunct />
-      <Product />
+      <Product1 />
+      <Personne/>
+      <Personne nom="test" prenom="ceci est un test" />
+      <Composantcycle /> */}
+      
       {/* <h1 style={myStyle}>Code CSS</h1>
       {formatName(user)}
        Ceci un objet
@@ -49,6 +58,8 @@ function App() {
       <br>
       </br>
       Hello {nom} {prenom} {photo} */}
+      <Products />
+      
       
     </div>
   );

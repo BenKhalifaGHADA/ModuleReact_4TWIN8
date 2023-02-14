@@ -14,13 +14,9 @@ class ComposantClass extends Component {
          <Button variant="primary" onClick={()=>this.handleClick()}>Incrémenter</Button>
         <h2>{this.state.valeur}</h2>
         Ceci est un composant de classe
-        <h1>Le contenu de mon texte est:{this.state.monTexte}</h1>
-        {/* <h2>{this.setState({
-            valeur:"Hello"
-        })}</h2> */}
-       
-        
+        <h1>Le contenu de mon texte est:{this.state.monTexte}</h1>    
         </>);
     }
 }
  export default ComposantClass;
+ 
