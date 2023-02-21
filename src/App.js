@@ -7,6 +7,7 @@ import Personne from './Components/Personne';
 import Product from './Components/Product';
 import Product1 from './Components/Product1';
 import Products from './Components/Products';
+import ProductsFunc from './ComposantFonctionnelle/ProductsFunc';
 
 
 const option=(
@@ -58,7 +59,8 @@ function App() {
       <br>
       </br>
       Hello {nom} {prenom} {photo} */}
-      <Products />
+      {/* <Products /> */}
+    <ProductsFunc />
       
       
     </div>
