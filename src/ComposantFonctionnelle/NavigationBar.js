@@ -10,6 +10,8 @@ function NavbarComponent() {
           <Navbar.Brand to="/products">MyStore</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={NavLink} to="/products" style={({isActive})=>({textDecoration:isActive&&'underline'})}>Products</Nav.Link>
+            <Nav.Link as={NavLink} to="/products/add" style={({isActive})=>({textDecoration:isActive&&'underline'})}>Add Product</Nav.Link>
+
           </Nav>
         </Container>
       </Navbar>

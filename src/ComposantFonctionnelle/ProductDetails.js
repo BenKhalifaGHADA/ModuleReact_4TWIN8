@@ -1,20 +1,34 @@
 import React from 'react'
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
-import products from "../products.json";
-
+//import products from "../products.json";
+import { getProductById } from '../service/api';
+import { useState,useEffect } from 'react';
 function ProductDetails() {
-    const {name} = useParams();
-    const product = products.find((product)=>product.name === name);
+   const {id} = useParams();
+   const [product, setProduct] = useState([]);
+    
+   useEffect(() => {
+     getProductById(id).then((data) => {
+       console.log(data)
+       setProduct(data);
+     });
+     
+   },[]);
+   console.log(product.img);
+
+ 
   return (
     <Container style={{ marginTop: "30px" }}>
-        <Row>
+      {product.id !== undefined? <Row>
           <Col md={4}>
+         
             <Card.Img
               variant="top"
-              src={require("../assets/images/" + product.img)}
+              src={require("../assets/images/"+ product.img)}
               alt="Product Img"
-              height="300"
+              height="50"
+              
             />
           </Col>
           <Col md={8}>
@@ -52,6 +66,8 @@ function ProductDetails() {
             </Row>
           </Col>
         </Row>
+      : "Product does not exist" }
+        
       </Container>
   )
 }
