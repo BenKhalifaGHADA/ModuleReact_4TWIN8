@@ -1,7 +1,8 @@
 // import logo from './logo.svg';
-import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import React, { Suspense } from 'react';
+
 
 
 const UpdateProduct = React.lazy(()=> import('./ComposantFonctionnelle/UpdateProduct'))
@@ -11,7 +12,11 @@ const ProductDetails = React.lazy(()=> import('./ComposantFonctionnelle/ProductD
 const NavbarComponent = React.lazy(()=> import('./ComposantFonctionnelle/NavigationBar'))
 const NotFound = React.lazy(()=> import('./ComposantFonctionnelle/NotFound'))
 
+
+
 function App() {
+
+ 
   return (
     <div className="App">
       {/* <ComposantClass />
@@ -57,7 +62,8 @@ function App() {
       <Route path="/acceuil" element={<Acceuil/>}></Route> */}
       
       <Route path='/products'>
-      <Route index element={<ProductsFunc />}/>
+      <Route index element={<ProductsFunc />} />
+     
       <Route path='add' element={<AddProduct />}/>
       <Route path=':id' element={<ProductDetails />}/>
       <Route path='update/:id' element={<UpdateProduct />}/>

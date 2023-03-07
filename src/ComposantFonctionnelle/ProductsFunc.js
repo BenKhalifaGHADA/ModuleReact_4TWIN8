@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CardGroup from "react-bootstrap/CardGroup";
-import products from "../products.json";
+// import products from "../products.json";
 import ProductFunc from "./ProductFunc";
 import Alert from 'react-bootstrap/Alert';
 import { getallProducts,deleteProduct } from "../service/api";

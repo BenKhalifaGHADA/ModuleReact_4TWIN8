@@ -23,8 +23,11 @@ function ProductFunc(props) {
               <Card.Body>
                 <Card.Title>
                   {/* on va ajouter cette ligne de code  */}
-                <Link to={`/products/${props.product.name}`}> {props.product.name}</Link>
+                {/* <Link to={`/products/${props.product.name}`}> {props.product.name}</Link> */}
+                <Link to={`/products/${props.product.id}`}>{props.product.name}</Link>
+              
                   </Card.Title>
+                 
                 <Card.Text>{props.product.description}</Card.Text>
                 <Card.Text> {props.product.price} </Card.Text>
                 <Card.Text>Likes :{like}</Card.Text>
@@ -32,6 +35,8 @@ function ProductFunc(props) {
                 <Button variant="primary" onClick={addLikes}>Like</Button>{' '}
                 <Button variant="primary" onClick={()=>props.buyFunction(product,updateQuantity)} 
                 disabled={quantity===0}>Buy</Button>
+                 <Button variant="success" ><Link to={`/products/update/${product.id}`} style={{textDecoration :'none' ,color: 'white'}}>Update Product </Link></Button>
+                 <Button variant="danger" onClick={() => props.deleteProd(product.id)}>Delete Product</Button>
               </Card.Body>
       </Card>
     </> );
